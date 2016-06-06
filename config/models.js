@@ -9,7 +9,7 @@ function initModels(app) {
 
   let modelsPath = app.get('root') + '/app/models/';
 
-  ['user', 'token'].forEach(function(model) {
+  ['user', 'token', 'product-details', 'product', 'money'].forEach(function(model) {
     require(modelsPath + model);
   });
 };
