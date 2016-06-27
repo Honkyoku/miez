@@ -33,6 +33,3 @@ config/environments/*
 config/winston/environments/*
 !config/winston/environments/example.js
 
-.idea
-# tests
-tests/fixtures
