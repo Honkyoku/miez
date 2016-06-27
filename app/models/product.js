@@ -5,17 +5,17 @@ const mongoose = require('mongoose');
 const commonHelper = require('../helpers/common');
 // custom schema
 const Money = require('./money').schema;
-const ProductDetail = require('./product-details').schema;
+const ProductDetail = require('./product-detail').schema;
 const Schema = mongoose.Schema;
 // mongoose schema
 const ObjectId = Schema.ObjectId;
 const Mixed = Schema.Types.Mixed;
 
 const ProductSchema = new Schema({
-  sku:          { type: String, required: true },
+  sku:          { type: String, required: true, unique: true },
   category:     { type: String },
-  title:        { type: String, required: true },
   slug:         { type: String },
+  title:        { type: String },
   images:       { type: [
     {
       caption:  { type: String },
@@ -29,7 +29,7 @@ const ProductSchema = new Schema({
 
 ProductSchema.pre('save', function(next) {
   // generic `slug` creation method
-  this.slug = commonHelper.createSlug(this.details.title);
+  this.slug = commonHelper.createSlug(this.title);
   next();
 });
 

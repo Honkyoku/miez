@@ -58,7 +58,7 @@ describe('Authentication', function() {
       url: baseUrl + '/auth/signin',
       form: {
         'email': userFixture.email,
-        'password': 'user_password'
+        'password': 'P@ssw0rd!'
       },
       json:true
     }, function(err, res, body) {

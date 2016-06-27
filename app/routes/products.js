@@ -2,7 +2,8 @@
 
 const express = require('express');
 const router = express.Router();
-const productCtrl = require('../controllers/product');
+const ProductService = require('../controllers/product');
+const productCtrl = new ProductService();
 const auth = require('../middlewares/authentication');
 const response = require('../helpers/response');
 

@@ -11,5 +11,4 @@ function initRoutes(app) {
 
   app.use('/auth', require(routesPath + '/auth'));
   app.use('/api', require(routesPath + '/users'));
-  app.use('/api', require(routesPath + '/products'));
 };
