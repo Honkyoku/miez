@@ -2,14 +2,12 @@
 
 const express = require('express');
 const router = express.Router();
-const ProductService = require('../controllers/product');
-const productCtrl = new ProductService();
-const auth = require('../middlewares/authentication');
-const response = require('../helpers/response');
+const productCtrl = require('../controllers/product');
 
-router.get('/products', auth.ensured, productCtrl.getAll, response.toJSON('products'));
-router.get('/products/:productId', auth.ensured, productCtrl.findById, response.toJSON('product'));
-router.put('/products/:productId', auth.ensured, productCtrl.findById, productCtrl.update, response.toJSON('product'));
-router.delete('/products/:productId', auth.ensured, productCtrl.delete);
+router.post('/products', productCtrl.create);
+router.put('/products/:sku', productCtrl.update);
+router.get('/products', productCtrl.getAll);
+router.get('/products/:sku', productCtrl.getBySku);
+router.delete('/products/:sku', productCtrl.remove);
 
 module.exports = router;
