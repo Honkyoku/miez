@@ -2,7 +2,7 @@
 
 module.exports = {
   port: 3001,
-  hostname: '127.0.0.1',
+  hostname: 'localhost',
   baseUrl: 'http://localhost:3001',
   mongodb: {
     uri: 'mongodb://localhost/miez_test_db'

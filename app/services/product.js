@@ -38,7 +38,13 @@ class ProductService {
   }
 
   findBySKU(sku, callback) {
-    this.Product.findOne({sku: sku}, callback);
+    this.Product.findOne({sku: sku}, function(err, prod) {
+      if (!prod) {
+        err = { error: "Product not found", status: 404 };
+      }
+
+      callback(err, prod);
+    });
   }
 
   update(sku, data, callback) {
